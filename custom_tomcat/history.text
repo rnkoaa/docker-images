@@ -1,0 +1,500 @@
+  115  hg status
+  116  hg forget app/app.iml 
+  117  hg status
+  118  clear
+  119  hg status
+  120  cd ../NodeLabs/angular-devdactic/
+  121  git status
+  122  npm start
+  123  cd Projects/NodeLabs/angular-devdactic/
+  124  ls
+  125  git stash
+  126  clear
+  127  git commit -am "permissions change should cause a change in the ui"
+  128  git push
+  129  clear
+  130  brew install Httpie
+  131  httpie
+  132  http GET http://nadeemkhedr.com/how-to-do-authorization-and-role-based-permissions-in-angularjs/
+  133  clear
+  134  http localhost:8000/api/users
+  135  http GET localhost:8000/api/users
+  136  http GET localhost:8000/api/users
+  137  clear
+  138  git commit -am "add http auth interceptor to the screen"
+  139  clear
+  140  clear
+  141  npm install -g bower
+  142  npm install -g bower
+  143  npm install -g yo
+  144  npm upgrade npm
+  145  npm install -g generator-jhipster
+  146  npm install -g grunt-cli
+  147  clear
+  148  ls
+  149  cd ~/Projects/
+  150  ls
+  151  rm -rf MagnaCarta/
+  152  clear
+  153  ls
+  154  mkdir jhipster
+  155  cd jhipster/
+  156  yo jhipster
+  157  npm install -g npm
+  158  npm install -g npm
+  159  grunt serve
+  160  npm install -g grunt-cli
+  161  grunt
+  162  grunt
+  163  cd Projects/jhipster/
+  164  clear
+  165  ls
+  166  gradle
+  167  npm install
+  168  clear
+  169  ./gradlew
+  170  clear
+  171  ls
+  172  bower install
+  173  npm install
+  174  bower install
+  175  brew install bower
+  176  brew update
+  177  npm install -g bower
+  178  bower install
+  179  npm config get prefix
+  180  brew remove node
+  181  brew uninstall --force node
+  182  clear
+  183  node
+  184  node --version
+  185  sudo port uninstall nodejs
+  186  sudo rm -rf  /usr/local/lib/node_modules/npm/
+  187  clear
+  188  sudo rm -rf ~/.node
+  189  clear
+  190  node -v
+  191  cd /usr/local/lib/
+  192  ls
+  193  sudo rm -rf node_modules/
+  194  ls
+  195  cd /usr/local/include/
+  196  ls
+  197  sudo rm -rf node/
+  198  cd ~
+  199  ls
+  200  ls -la
+  201  clear
+  202  cd /usr/local/bin/
+  203  ls
+  204  ls node 
+  205  sudo rm -rf node 
+  206  cd /usr/bin/
+  207  ls
+  208  ls node
+  209  clear
+  210  node -v
+  211  echo $PATH
+  212  brew install node
+  213  node -v
+  214  node -v
+  215  brew install node
+  216  brew doctor
+  217  echo 'export PATH="/usr/local/bin:$PATH"' >> ~/.bash_profile
+  218  brewsudo mv /opt/local/ ~/macports
+  219  sudo mv /opt/local/ ~/macports
+  220  brew link node
+  221  rm /usr/local/share/man/man1/node.1 
+  222  clear
+  223  brew link node
+  224  rm /usr/local/share/systemtap/tapset/node.stp 
+  225  sudo /usr/local/share/systemtap/tapset/node.stp 
+  226  sudo rm /usr/local/share/systemtap/tapset/node.stp 
+  227  clear
+  228  brew link node
+  229  sudo chown -R rnkoaa:admin /usr/local/bin
+  230  brew link node
+  231  whoami
+  232  sudo chown -R rnkoaa:admin /usr/local/bin
+  233  bower init
+  234  bower install
+  235  cd Projects/JavaLabs/jhip-actuator-ui/
+  236  gradle clean
+  237  gradle bootRun
+  238  clear
+  239  ./gradlew bootRun
+  240  ./gradlew bootRun
+  241  clear
+  242  ./gradlew bootRun
+  243  ./gradlew bootRun
+  244  ./gradlew bootRun
+  245  ./gradlew bootRun
+  246  ./gradlew bootRun
+  247  ./gradlew bootRun
+  248  clear
+  249  ./gradlew bootRun
+  250  httpie localhost:8080/api/logs
+  251  httpie
+  252  clear
+  253  brew update httpie
+  254  brew upgrade httpie
+  255  httpie
+  256  brew link httpie
+  257  cd ~/Environments/vivid64/
+  258  vagrant ssh
+  259  brew link node
+  260  brew doctor
+  261  brew link node
+  262  sudo chown -R $USER /usr/local/include
+  263  brew link node
+  264  sudo chown -R rnkoaa:admin /usr/local/bin/
+  265  sudo chown -R rnkoaa:admin /usr/local/share/
+  266  brew link node
+  267  brew link --overwrite --dry-run node
+  268  brew link --overwrite node
+  269  npm uninstall npm -g
+  270  brew link -n node
+  271  sudo chown -R rnkoaa:admin /usr/local/include/
+  272  sudo chown -R rnkoaa:admin /usr/local/lib/
+  273  brew link --overwrite node
+  274  node
+  275  npm install -g npm
+  276  node -v
+  277  clear
+  278  npm install -g bower
+  279  bower
+  280  npm config set prefix /usr/local
+  281  which bower
+  282  npm install -g bower
+  283  which bower
+  284  clear
+  285  cd Projects/jhipster/
+  286  bower install
+  287  npm install -g grunt-cli
+  288  grunt serve
+  289  clear
+  290  cd ..
+  291  clear
+  292  cd jhipster/
+  293  ls
+  294  bower install
+  295  clear
+  296  ./gradlew bootrun
+  297  clear
+  298  ./gradlew bootrun
+  299  clear
+  300  ls
+  301  clear
+  302  ls
+  303  cd ..
+  304  ls
+  305  cd JavaLabs/
+  306  ls
+  307  mkdir jhip-actuator-ui
+  308  cd jhip-actuator-ui/
+  309  gradle init
+  310  ls
+  311  vim build.gradle 
+  312  clear
+  313  vim build.gradle 
+  314  gradle
+  315  vim build.gradle 
+  316  cd ..
+  317  ls
+  318  cd ..
+  319  ls
+  320  cd actuator-ui-admin/
+  321  ls
+  322  vim build.gradle 
+  323  httpie
+  324  Httpie
+  325  http GET localhost:8080/api/logs
+  326  clear
+  327  http GET localhost:8080/api/logs
+  328  clear
+  329  HTTP GET localhost:8080/metrics
+  330  HTTP GET localhost:8080/metrics/metrics
+  331  HTTP GET localhost:8080/metrics
+  332  HTTP GET localhost:8080/metrics/metrics
+  333  HTTP GET localhost:8080/metrics/metrics
+  334  HTTP GET localhost:8080/metrics
+  335  HTTP GET localhost:8080/metrics/1
+  336  HTTP GET localhost:8080/metrics/1
+  337  HTTP GET localhost:8080/metrics/1
+  338  HTTP GET localhost:8080/metrics
+  339  pwd
+  340  cd ../JavaLabs/jhip-actuator-ui/
+  341  git status
+  342  cd ..
+  343  mv jhip-actuator-ui/ ..
+  344  ls
+  345  cd ..
+  346  cd jhip-actuator-ui/
+  347  git status
+  348  git init
+  349  git status
+  350  git add --all
+  351  git commit -am "initial commit"
+  352  clear
+  353  cd
+  354  ls
+  355  mkdir Environments
+  356  clear
+  357  cd Environments/
+  358  ls
+  359  mkdir vivid64
+  360  cd vivid64/
+  361  vagrant init ubuntu/vivid64; vagrant up --provider virtualbox
+  362  ls
+  363  vim Vagrantfile 
+  364  vagrant ssh
+  365  clear
+  366  ls
+  367  vim Vagrantfile 
+  368  vagrant reload
+  369  vagrant ssh
+  370  sudo vim Vagrantfile 
+  371  vim Vagrantfile 
+  372  clear
+  373  vagrant down
+  374  vagclear
+  375  vagrant destroy
+  376  clear
+  377  ls
+  378  vim bootstrap.sh
+  379  ls
+  380  clear
+  381  vagrant
+  382  vagrant init ubuntu/vivid64; vagrant up --provider virtualbox
+  383  vagrant ssh
+  384  vagrant destroy
+  385  clear
+  386  vim Vagrantfile 
+  387  vagrant box add
+  388  vagrant box add vivo64
+  389  clear
+  390  vagrant up
+  391  vim Vagrantfile 
+  392  vagrant up
+  393  clear
+  394  vagrant box add
+  395  vim Vagrantfile 
+  396  vagrant box add
+  397  vagrant up
+  398  vagrant up
+  399  vim Vagrantfile 
+  400  vagrant up
+  401  vagrant ssh
+  402  clear
+  403  ls
+  404  vim Vagrantfile 
+  405  vagrant reload
+  406  vagrant ssh
+  407  sudo vim /etc/bashrc 
+  408  sudo vim /etc/bashrc 
+  409  clear
+  410  ls
+  411  cd temp/
+  412  ls
+  413  ls
+  414  vim hello.xml
+  415  sed -help
+  416  sed --help
+  417  vim touch_replace.sh
+  418  chmod 755 touch_replace.sh 
+  419  ./touch_replace.sh 
+  420  grep -n "</tomcat-users>" hello.xml 
+  421  vim hello.xml 
+  422  vim find_line.sh
+  423  chmod 755 find_line.sh 
+  424  ./find_line.sh 
+  425  vim find_line.sh
+  426  ./find_line.sh 
+  427  vim find_line.sh
+  428  ./find_line.sh 
+  429  grep -n "</tomcat-users>" hello.xml | cut -d : -f 1
+  430  vim find_line.sh 
+  431  ./find_line.sh 
+  432  vim find_line.sh 
+  433  ./find_line.sh 
+  434  clear
+  435  clear
+  436  sed -i '5s/.*/ <hello>Good Morning</hello>' hello.xml 
+  437  sed -i '5s/.*/ <hello>Good Morning</hello>/' hello.xml 
+  438  vim hello.xml 
+  439  sed -i '3s/.*/ <hello>Good Morning</hello>/' hello.xml 
+  440  sed -i'' '3s/.*/ <hello>Good Morning</hello>/' hello.xml 
+  441  sed -i '' '3s/.*/ <hello>Good Morning</hello>/' hello.xml 
+  442  sed -i '' '3s/.*/ <hello>Good Morning<\/hello>/' hello.xml 
+  443  vim hello.xml 
+  444  sed -i '' '3s/.*/ <hello>Bon Jour<\/hello>/' hello.xml 
+  445  vim hello.xml 
+  446  ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/sublime
+  447  sublime
+  448  clear
+  449  clear
+  450  ln -s "/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl" /usr/local/bin/subl
+  451  subl scripts.txt
+  452  ls
+  453  vim find_line.sh 
+  454  subl find_line.sh 
+  455  :q
+  456  ls
+  457  subl touch_replace.sh 
+  458  ls
+  459  clear
+  460  vagrant
+  461  vagrant status
+  462  clear
+  463  clear
+  464  docker run busybox echo 'hello, World!'
+  465  cd
+  466  clear
+  467  ls
+  468  mdkir docker
+  469  mkdir docker
+  470  cd docker/
+  471  boot2docker up
+  472  docker pull fedora
+  473  boot2docker init
+  474  boot2docker up
+  475  boot2docker up
+  476  boot2docker -v up
+  477  clear
+  478  boot2docker init
+  479  boot2docker up
+  480  docker run busybox echo 'Hello, World!'
+  481   docker pull fedora
+  482  boot2docker shellinit 2> /dev/null
+  483  ls -la ~
+  484  vim ~/.bash_profile 
+  485  docker run busybox echo 'Hello, World!'
+  486  $(boot2docker shellinit 2> /dev/null)
+  487  clear
+  488  docker run busybox echo 'Hello, World!'
+  489  clear
+  490  docker images
+  491  docker pull fedora
+  492  docker images
+  493  docker pull ubuntu
+  494  docker run fedora touch file
+  495  docker ps -l
+  496  docker commit 0cd316263540 my-touced-file
+  497  docker run my-touced-file ls -s /file
+  498  ls
+  499  ls
+  500  exit
+  501  cd docker/
+  502  ls
+  503  vim Dockerfile
+  504  vim Dockerfile
+  505  docker build -t mongodb .
+  506  vim Dockerfile
+  507  docker build -t mongodb .
+  508  vim Dockerfile
+  509  docker build -t mongodb .
+  510  subl Dockerfile 
+  511  docker build
+  512  docker build -t mongodb .
+  513  docker run 7339dd286b6a
+  514  docker run -d 7339dd286b6a
+  515  docker
+  516  docker images
+  517  docker ps
+  518  docker inspect 7339dd286b6a
+  519  docker inspect --format '{{ .NetworkSettings.IPAddress }}' ${CID}
+  520  docker exec -it [7339dd286b6a] bash
+  521  docker inspect 7339dd286b6a
+  522  docker-ip 7339dd286b6a
+  523  docker inspect --format '{{.NetworkSettings.IPAddress }}' "7339dd286b6a"
+  524  docker ps
+  525  docker kill 7339dd286b6a
+  526  docker stop 7339dd286b6a
+  527  docker ps
+  528  docker ps | grep 7339dd286b6a
+  529  docker kill 931f9577a78c
+  530  docker ps | grep 7339dd286b6a
+  531  clear
+  532  docker ps
+  533  clear
+  534  docker run -p 27017:27017 --name mongo_instance_001 -d
+  535  docker images
+  536  docker run -p 27017:27017 --name mongodb -d
+  537  docker rm my-touced-file
+  538  docker rm --name my-touced-file
+  539  docker rm 04bdcb462052
+  540  docker rmi 04bdcb462052
+  541  docker halt 04bdcb462052
+  542  docker --help
+  543  docker stop 04bdcb462052
+  544  docker kill 04bdcb462052
+  545  docker rmi 04bdcb462052
+  546  docker rmi 04bdcb462052 -f
+  547  docker rmi -f 04bdcb462052
+  548  clear
+  549  docker ps
+  550  docker images
+  551  docker rmi -f 8c2e06607696
+  552  docker images
+  553  clear
+  554  docker images
+  555  docker run -d 7339dd286b6a
+  556  docker kill 7339dd286b6a
+  557  docker
+  558  docker kill mongodb
+  559  docker kill 7339dd286b6a
+  560  docker kill -f 7339dd286b6a
+  561  clear
+  562  docker ps
+  563  docker kill 8e645108c8d1
+  564  clear
+  565  ls
+  566  docker run images
+  567  clear
+  568  docker images
+  569  docker run -p 27017:27017 7339dd286b6a -d
+  570  docker run -p 27017:27017 -d 7339dd286b6a
+  571  mongo --port 27017
+  572  clear
+  573  docker ps
+  574  docker kill 4ea0f33713d7
+  575  clear
+  576  docker run -p 28001:27017 -d 7339dd286b6a
+  577  mongo --port 28001
+  578  mongo --port 27001
+  579  mongo --port 27017
+  580  clear
+  581  mongo --port 28001
+  582  docker ps
+  583  clear
+  584  mongo --port 28001
+  585  docker ps
+  586  mongo --port 28001
+  587  boot2docker ip
+  588  mongo --host 192.168.59.103
+  589  docker ps
+  590  docker kill 15041b40ca1f
+  591  clear
+  592  docker run -p 28017:27017 -d 7339dd286b6a
+  593  docker ps
+  594  mongo --port 28017 --host 192.168.59.103
+  595  docker images
+  596  clear
+  597  ls
+  598  mkdir tomcat
+  599  mkdir mongodb
+  600  vim Dockerfile 
+  601  mv Dockerfile mongodb/
+  602  ls
+  603  cd tomcat/
+  604  vim Dockerfile
+  605  ls
+  606  subl Dockerfile 
+  607  :q
+  608  clear
+  609  docker build
+  610  docker build -t .
+  611  history
+  612  :q
+  613  ls
+  614  history > history.text
