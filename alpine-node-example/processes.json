@@ -1,0 +1,18 @@
+{
+    "apps": [
+        {
+            "name": "server",
+            "merge_logs": true,
+            "script": "bin/www",
+            "out_file": "/tmp/servers.log",
+            "log_date_format": "MM/DD/YYYY HH:mm:ss",
+            "max_restarts": 20,
+            "instances": 4,
+            "max_memory_restart": "200M",
+            "env": {
+                "PORT": 3000,
+                "NODE_ENV": "production"
+            }
+        }
+    ]
+}

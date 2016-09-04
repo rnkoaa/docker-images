@@ -1,0 +1,14 @@
+FROM rnkoaa/alpine-node
+
+RUN mkdir -p /var/www/alpine-node-example
+WORKDIR /var/www/alpine-node-example
+ADD . /var/www/alpine-node-example
+
+RUN rm -rf node_modules \
+    && npm install --production \
+    && npm install -g pm2
+# Expose port
+EXPOSE 3000
+
+CMD ["pm2", "start", "processes.json", "--no-daemon"]
+# the --no-daemon is a minor workaround to prevent the docker container from thinking pm2 has stopped running and ending itself
