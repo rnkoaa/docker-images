@@ -35,6 +35,7 @@ VOLUME /var/jenkins_home
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
 RUN DEBIAN_FRONTEND=noninteractive \
+    apt-get update && \
     apt-get install -y wget && \
     apt-get install -y curl && \
     apt-get -y install python-software-properties && \
