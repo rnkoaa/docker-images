@@ -7,14 +7,12 @@
 # python
 
 FROM ubuntu:xenial
-
 MAINTAINER Richard Agyei <richard.agyei@gmail.com>
 
 # this is a non-interactive automated build - avoid some warning messages
 ENV DEBIAN_FRONTEND noninteractive
 ENV JENKINS_HOME /var/jenkins_home
 ENV JENKINS_SLAVE_AGENT_PORT 50000
-
 
 ARG user=jenkins
 ARG group=jenkins
@@ -36,9 +34,7 @@ VOLUME /var/jenkins_home
 # or config file with your custom jenkins Docker image.
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
-RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive \
-    apt-get -y dist-upgrade && \
     apt-get install -y wget && \
     apt-get install -y curl && \
     apt-get -y install python-software-properties && \
@@ -56,8 +52,6 @@ RUN DEBIAN_FRONTEND=noninteractive \
 
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
-
-
 ENV TINI_VERSION 0.9.0
 ENV TINI_SHA fa23d1e20732501c3bb8eeeca423c89ac80ed452
 
