@@ -9,6 +9,8 @@ services:
     image: rnkoaa/jenkins
     environment:
       JAVA_OPTS: "-Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+    container_name: jenkins
+    privileged: true
     ports:
       - "50000:50000"
       - "8080:8080"
