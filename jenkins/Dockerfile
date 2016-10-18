@@ -34,6 +34,15 @@ VOLUME /var/jenkins_home
 # or config file with your custom jenkins Docker image.
 RUN mkdir -p /usr/share/jenkins/ref/init.groovy.d
 
+USER root
+RUN apt-get update && \
+    apt-get install -y sudo vim apt-transport-https ca-certificates && \
+    apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D && \
+    echo "deb https://apt.dockerproject.org/repo ubuntu-xenial main" > /etc/apt/sources.list.d/docker.list
+
+RUN chmod +w /etc/sudoers; echo "jenkins   ALL=(ALL:ALL)      NOPASSWD:ALL" >> /etc/sudoers; chmod -w /etc/sudoers
+#RUN chmod +w /etc/sudoers; echo "jenkins ALL=(ALL:ALL) NOPASSWD:ALL" >> /etc/sudoers; chmod -w /etc/sudoers
+
 RUN DEBIAN_FRONTEND=noninteractive \
     apt-get update && \
     apt-get install -y wget && \
@@ -49,8 +58,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get install -y python python-dev python-pip \
     python-virtualenv && \
     apt-get install -y oracle-java8-installer && \
-    apt-get install -y nodejs
+    apt-get install -y nodejs && \
+    apt-get install -y docker-engine
 
+VOLUME /var/lib/docker
 # Define commonly used JAVA_HOME variable
 ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV TINI_VERSION 0.9.0
@@ -98,6 +109,6 @@ ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
 COPY plugins.sh /usr/local/bin/plugins.sh
 COPY install-plugins.sh /usr/local/bin/install-plugins.sh
 
-RUN apt-get clean && \
-    rm -rf /var/lib/apt/lists/*  && \
-    rm -rf /var/cache/oracle-jdk8-installer
+#RUN apt-get clean && \
+#    rm -rf /var/lib/apt/lists/*  && \
+#    rm -rf /var/cache/oracle-jdk8-installer
