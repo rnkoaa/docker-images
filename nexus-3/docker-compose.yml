@@ -1,0 +1,24 @@
+version: '2'
+
+services:
+#  jenkins-data:
+#    build: ./jenkins-data
+#    container_name: jenkins-data
+
+  nexus:
+    image: rnkoaa/nexus3:latest
+    environment:
+#      JAVA_OPTS: "-Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+      JAVA_MIN_MEM: "256M"
+      JAVA_MAX_MEM: "512M"
+      JKS_PASSWORD: "$JKS_PASSWORD"
+    container_name: nexus
+    privileged: true
+    ports:
+      - "5000:5000"
+      - "8081:8081"
+#    volumes_from:
+#      - jenkins-data
+# For access to host docker daemon
+#      - /usr/local/bin/docker:/bin/docker
+#      - /var/run/docker.sock:/var/run/docker.sock
