@@ -16,6 +16,12 @@ services:
       - "8083:8083"
     volumes:
       - nexus3-data:/nexus-data
-
+    networks:
+      - infrastructure
+      
 volumes:
   nexus3-data:
+
+networks:
+  infrastructure:
+    driver: bridge
