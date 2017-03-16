@@ -1,16 +1,22 @@
 version: '2'
 
 services:
+  nexus3-data:
+    build: ./nexus-data
+    container_name: nexus3-data
+
   nexus-3:
-    image: "rnkoaa/nexus3:latest"
+    container_name: "nexus3"
     build: .
     environment:
 #      JAVA_OPTS: "-Djava.awt.headless=true"
       JAVA_MIN_MEM: "256M"
       JAVA_MAX_MEM: "512M"
-      JKS_PASSWORD: "$JKS_PASSWORD"
+#      JKS_PASSWORD: "$JKS_PASSWORD"
     ports:
       - "5000:5000"
       - "8081:8081"
-    volumes:
-      - /var/jenkins_home
+      - "8082:8082"
+      - "8083:8083"
+    volumes_from:
+      - nexus3-data
