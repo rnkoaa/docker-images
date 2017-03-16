@@ -16,6 +16,12 @@ services:
       - "8080:8080"
     volumes_from:
       - jenkins-data
+    networks:
+      - infrastructure
+
+networks:
+  infrastructure:
+    driver: bridge
 # For access to host docker daemon
 #      - /usr/local/bin/docker:/bin/docker
 #      - /var/run/docker.sock:/var/run/docker.sock
