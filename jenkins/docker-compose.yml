@@ -8,7 +8,7 @@ services:
   master:
     image: rnkoaa/jenkins
     environment:
-      JAVA_OPTS: "-Xmx2048m -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+      JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
     privileged: true
     ports:
