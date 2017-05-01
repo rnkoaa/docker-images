@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: mango-deployment
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: mango
+    spec:
+      containers:
+      - name: mango
+        image: rnkoaa/mango:latest
+        env:
+          - name: CLOUD_ENV
+            value: "Google Cloud Demo"
+        ports:
+        - containerPort: 3000
