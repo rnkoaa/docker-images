@@ -1,0 +1,6 @@
+version: '2'
+
+services:
+  application:
+    container_name: mango
+    image: rnkoaa/mango:latest

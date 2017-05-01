@@ -1,4 +1,4 @@
-FROM rnkoaa/alpine-node
+FROM rnkoaa/node-alpine:6.9.2
 
 RUN mkdir -p /var/www/alpine-node-example
 WORKDIR /var/www/alpine-node-example

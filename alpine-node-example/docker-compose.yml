@@ -1,0 +1,10 @@
+version: '2'
+
+services:
+  mango:
+    image: rnkoaa/mango:latest
+    container_name: mango
+    ports:
+      - 3000:3000
+    environment:
+      - "CLOUD_ENV=Local"
