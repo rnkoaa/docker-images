@@ -1,19 +1,29 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: mango-deployment
+  name: web-deployment
 spec:
   replicas: 2
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  minReadySeconds: 5
   template:
     metadata:
       labels:
-        app: mango
+        name: web
     spec:
       containers:
-      - name: mango
-        image: rnkoaa/mango:latest
+      - image: rnkoaa/mango:latest
+        name: web
+        imagePullPolicy: IfNotPresent
         env:
-          - name: CLOUD_ENV
-            value: "Google Cloud Demo"
+        - name: GCLOUD_ENV
+          value: "Google Cloud Env."
+        - name: CLOUD_ENV
+          value: "Google Cloud Env."
         ports:
-        - containerPort: 3000
+        - name: http-server
+          containerPort: 3000
