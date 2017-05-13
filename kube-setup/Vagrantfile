@@ -1,0 +1,62 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.box_check_update = false
+  # config.hostmanager.enabled = true
+  # config.hostmanager.manage_guest = true
+  
+  config.vm.provision :shell, :path => "install.sh"
+
+  # Configure two vms
+  config.vm.define "master" do |master|
+    master.vm.box = "ubuntu/xenial64"
+    master.vm.hostname = 'master'
+
+    master.vm.network :private_network, ip: "192.168.33.10"
+    master.vm.network :forwarded_port, guest: 22, host: 2020, id: "ssh"
+
+    master.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--name", "master"]
+    end
+
+    master.vm.provision :shell, inline: "sed 's/127\.0\.0\.1.*master.*/192\.168\.33\.10 master/' -i /etc/hosts"
+  end
+  
+  config.vm.define "node1" do |node1|
+    node1.vm.box = "ubuntu/xenial64"
+    node1.vm.hostname = 'node1'
+
+    node1.vm.network :private_network, ip: "192.168.33.20"
+    node1.vm.network :forwarded_port, guest: 22, host: 2040, id: "ssh"
+    
+    node1.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--name", "node1"]
+    end
+
+    node1.vm.provision :shell, inline: "sed 's/127\.0\.0\.1.*node1.*/192\.168\.33\.20 node1/' -i /etc/hosts"
+
+  end
+  
+  config.vm.define "node2" do |node2|
+    node2.vm.box = "ubuntu/xenial64"
+    node2.vm.hostname = 'node2'
+
+    node2.vm.network :private_network, ip: "192.168.33.30"
+    node2.vm.network :forwarded_port, guest: 22, host: 2060, id: "ssh"
+    
+    node2.vm.provider :virtualbox do |v|
+      v.customize ["modifyvm", :id, "--memory", 1024]
+      v.customize ["modifyvm", :id, "--name", "node2"]
+    end
+    node2.vm.provision :shell, inline: "sed 's/127\.0\.0\.1.*node2.*/192\.168\.33\.30 node2/' -i /etc/hosts"
+  end
+
+ # config.vm.provision "shell", inline: <<-SHELL
+ #   apt-get update && apt-get upgrade -y
+ # SHELL
+end
