@@ -1,10 +1,17 @@
-FROM alpine:3.4
+FROM alpine:3.6
+# rnkoaa/nexus3
+ARG VCF_REF
+ARG BUILD_DATE
 
-ENV NEXUS_VERSION="3.0.2-02" \
+ENV NEXUS_VERSION="3.6.0-02" \
     NEXUS_DATA="/nexus-data" \
     JAVA_MIN_MEM="1200M" \
     JAVA_MAX_MEM="1200M" \
     JKS_PASSWORD="changeit"
+
+# docker images -f "label=com.rnkoaa.service='nexus'"
+# docker images -f "label=com.rnkoaa.infrastructure.service='nexus'"
+LABEL com.rnkoaa.infrastructure.service="nexus"
 
 RUN set -x \
     && apk --no-cache add \
