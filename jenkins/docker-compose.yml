@@ -1,12 +1,8 @@
 version: '2'
 
 services:
-  jenkins-data:
-    build: ./jenkins-data
-    container_name: jenkins-data
-
   master:
-    image: rnkoaa/jenkins
+    image: rnkoaa/jenkins:lts
     environment:
       JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
@@ -14,14 +10,19 @@ services:
     ports:
       - "50000:50000"
       - "8080:8080"
-    volumes_from:
-      - jenkins-data
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+#      - /usr/local/bin/docker:/bin/docker
     networks:
-      - infrastructure
+      - infrastructure_net
+      - jenkins_net
 
 networks:
-  infrastructure:
+  jenkins_net:
     driver: bridge
-# For access to host docker daemon
-#      - /usr/local/bin/docker:/bin/docker
-#      - /var/run/docker.sock:/var/run/docker.sock
+  infrastructure_net:
+    external: true
+
+volumes:
+  jenkins_home:

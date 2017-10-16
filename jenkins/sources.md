@@ -1,1 +1,0 @@
-https://live-rg-engineering.pantheonsite.io/news/docker-jenkins-data-persists
