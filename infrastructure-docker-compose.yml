@@ -1,0 +1,51 @@
+version: '3'
+
+services:
+  jenkins:
+    image: rnkoaa/jenkins:lts
+    container_name: jenkins
+    environment:
+      JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+    container_name: jenkins
+    privileged: true
+    ports:
+      - "50000:50000"
+      - "8080:8080"
+    volumes:
+      - jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - infrastructure_net
+      - jenkins_net
+
+  nexus3:
+    image: sonatype/nexus3:latest
+    container_name: nexus-3
+    environment:
+      JAVA_MIN_MEM: "256M"
+      JAVA_MAX_MEM: "512M"
+#      JKS_PASSWORD: "$JKS_PASSWORD"
+    container_name: nexus
+    privileged: true
+    ports:
+      - "5000:5000"
+      - "8081:8081"
+      - "8082:8082"
+      - "8083:8083"
+    volumes:
+      - nexus_data:/nexus-data
+    networks:
+      - nexus_net
+      - infrastructure_net
+
+networks:
+  jenkins_net:
+    driver: bridge
+  nexus_net:
+    driver: bridge
+  infrastructure_net:
+    external: true
+
+volumes:
+  nexus_data:
+  jenkins_home:

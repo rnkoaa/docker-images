@@ -2,7 +2,7 @@ version: '2'
 
 services:
   nexus-master:
-    image: rnkoaa/nexus3:latest
+    image: sonatype/nexus3:latest
     environment:
       JAVA_MIN_MEM: "256M"
       JAVA_MAX_MEM: "512M"
@@ -17,11 +17,14 @@ services:
     volumes:
       - nexus3-data:/nexus-data
     networks:
-      - infrastructure
+      - nexus_net
+      - infrastructure_net
       
 volumes:
   nexus3-data:
 
 networks:
-  infrastructure:
+  nexus_net:
     driver: bridge
+  infrastructure_net:
+    external: true
