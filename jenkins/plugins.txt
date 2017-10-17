@@ -39,7 +39,7 @@ resource-disposer:latest
 nexus-jenkins-plugin:latest
 pam-auth:latest
 scm-api:latest
-cloudbees-folder:6.2.0
+cloudbees-folder:6.2.1
 pipeline-build-step:latest
 pipeline-github-lib:latest
 ant:latest
