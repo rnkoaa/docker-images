@@ -1,16 +1,23 @@
-version: '3'
+version: '3.1'
 
 services:
   jenkins:
     image: rnkoaa/jenkins:lts
     container_name: jenkins
     environment:
+      NEXUS_HOST: "nexus"
+      NEXUS_PORT: "8081"
+      NEXUS_USER: "admin"
+      NEXUS_PASS: "admin"
       JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
     privileged: true
     ports:
       - "50000:50000"
       - "8080:8080"
+    secrets:
+      - jenkins-user
+      - jenkins-pass
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
@@ -49,3 +56,9 @@ networks:
 volumes:
   nexus_data:
   jenkins_home:
+
+secrets:
+  jenkins-user:
+    external: true
+  jenkins-pass:
+    external: true
