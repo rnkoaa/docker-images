@@ -57,7 +57,7 @@ clean-image:
 	
 clean-image-deps:
 #	docker rmi -f $(shell $(docker images -qa -f dangling=true))
-	docker images -q -f dangling=true -f LABEL=application.name=$(REPO_NAME) | xargs -I ARGS docker rmi -f ARGS
+	docker images -q -f dangling=true -f LABEL=application.name=$(PROJECT_NAME) | xargs -I ARGS docker rmi -f ARGS
 
 run:
 	docker run -itd --name $(CONTAINER_NAME) -p 8080:8080 $(ORG_NAME)/$(PROJECT_NAME):$(BUILD_TAG)

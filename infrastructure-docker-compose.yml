@@ -8,8 +8,8 @@ services:
       NEXUS_HOST: "nexus"
       NEXUS_PORT: "8081"
       NEXUS_USER: "admin"
-      NEXUS_PASS: "admin"
-      JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+      NEXUS_PASSWORD: "admin123"
+      JAVA_OPTS: "-Xmx512m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
     privileged: true
     ports:
@@ -29,7 +29,7 @@ services:
     image: sonatype/nexus3:latest
     container_name: nexus-3
     environment:
-      JAVA_MIN_MEM: "256M"
+      JAVA_MIN_MEM: "512M"
       JAVA_MAX_MEM: "512M"
 #      JKS_PASSWORD: "$JKS_PASSWORD"
     container_name: nexus
@@ -62,3 +62,4 @@ secrets:
     external: true
   jenkins-pass:
     external: true
+
