@@ -1,3 +1,7 @@
+.PHONY: build clean run clean-image clean-image-deps
+default: build
+.DEFAULT_GOAL := build
+
 # Project variables
 PROJECT_NAME ?= jenkins
 ORG_NAME ?= rnkoaa
@@ -32,7 +36,6 @@ WARN := @bash -c '\
 	echo "=> $$1"; \
 	printf $(NC)' VALUE
 
-.PHONY: build clean run clean-image clean-image-deps
 
 build:
 	docker build --build-arg DOCKER_GID=1001 -t $(ORG_NAME)/$(PROJECT_NAME):$(BUILD_TAG) .
