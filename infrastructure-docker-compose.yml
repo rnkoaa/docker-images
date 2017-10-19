@@ -4,6 +4,8 @@ services:
   jenkins:
     image: rnkoaa/jenkins:lts
     container_name: jenkins
+    env_file:
+      ./.env
     environment:
       NEXUS_HOST: "nexus"
       NEXUS_PORT: "8081"
