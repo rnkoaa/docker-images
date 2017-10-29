@@ -1,0 +1,23 @@
+version: '3.1'
+
+services:
+  postgres:
+    image: rnkoaa/postgres:9.6
+    container_name: postgres
+    environment:
+      - "POSTGRES_USER=cataloguser"
+      - "POSTGRES_PASSWORD=cataloguser"
+    ports:
+      - "5432:5432"
+    volumes:
+      - "pg-data-volume:/var/lib/postgresql/data"
+    networks:
+      - catalogs_backend_db
+
+networks:
+  catalogs_backend_db:
+    external: true
+
+volumes:
+  pg-data-volume:
+    external: true
