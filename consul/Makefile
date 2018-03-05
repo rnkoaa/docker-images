@@ -5,16 +5,16 @@ PRIVATE_KEY := .vagrant/machines/node/virtualbox/private_key
 # either environment variables or kubestorage
 PROJECT_NAME ?= rnkoaa
 ORG_NAME ?= rnkoaa
-REPO_NAME ?= nomad
-ARM_REPO_NAME ?= nomad-arm6
+REPO_NAME ?= consul
+ARM_REPO_NAME ?= consul-arm6
 LATEST_VERSION ?= latest
-NOMAD_VERSION ?=0.7.1
+CONSUL_VERSION ?=1.0.6
 LATEST_IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(LATEST_VERSION)
-IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(NOMAD_VERSION)
+IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(CONSUL_VERSION)
 
 # ARM images
 LATEST_ARM_IMAGE_NAME ?= $(ORG_NAME)/$(ARM_REPO_NAME):$(LATEST_VERSION)
-ARM_IMAGE_NAME ?= $(ORG_NAME)/$(ARM_REPO_NAME):$(NOMAD_VERSION)
+ARM_IMAGE_NAME ?= $(ORG_NAME)/$(ARM_REPO_NAME):$(CONSUL_VERSION)
 
 # get colors from http://linuxmanage.com/colored-man-pages-log-files.html
 YELLOW := "\e[0;33m" # yellow
@@ -33,15 +33,15 @@ WARN := @bash -c '\
 
 # amd64 based images.
 build:
-	$(INFO) "generating building docker image"
-	@docker build --build-arg $(NOMAD_VERSION) -t $(IMAGE_NAME) .
-	@docker build --build-arg $(NOMAD_VERSION) -t $(LATEST_IMAGE_NAME) .
+	$(INFO) "building docker image"
+	@docker build --build-arg $(CONSUL_VERSION) -t $(IMAGE_NAME) .
+	@docker build --build-arg $(CONSUL_VERSION) -t $(LATEST_IMAGE_NAME) .
 
 # Only call these on arm based architectures. like raspberry pi 3
 build-arm:
 	$(INFO) "building arm6 based images."
-	@docker build --build-arg $(NOMAD_VERSION) -t $(ARM_IMAGE_NAME) .
-	@docker build --build-arg $(NOMAD_VERSION) -t $(LATEST_ARM_IMAGE_NAME) .
+	@docker build --build-arg $(CONSUL_VERSION) -t $(ARM_IMAGE_NAME) .
+	@docker build --build-arg $(CONSUL_VERSION) -t $(LATEST_ARM_IMAGE_NAME) .
 
 rmi:
 	$(INFO) "generating building docker image"

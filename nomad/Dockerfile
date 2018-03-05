@@ -13,7 +13,6 @@ ENV GLIBC_VERSION "2.25-r0"
 ENV GOSU_VERSION 1.10
 ENV DUMB_INIT_VERSION 1.2.0
 
-
 RUN set -x && \
     apk --update add --no-cache --virtual .gosu-deps dpkg curl gnupg libcap openssl su-exec && \
     curl -L -o /tmp/glibc-${GLIBC_VERSION}.apk https://github.com/andyshinn/alpine-pkg-glibc/releases/download/${GLIBC_VERSION}/glibc-${GLIBC_VERSION}.apk && \
@@ -31,15 +30,6 @@ RUN set -x && \
     chmod +x /usr/local/bin/gosu && \
     gosu nobody true && \
     apk del .gosu-deps
-
-# ENV NOMAD_VERSION 
-
-# https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_386.zip?_ga=2.267710030.1320043394.1520075963-141800051.1519325435
-# https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_amd64-lxc.zip?_ga=2.63784175.1320043394.1520075963-141800051.1519325435
-# https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_amd64.zip?_ga=2.63784175.1320043394.1520075963-141800051.1519325435
-# https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_arm.zip?_ga=2.63784175.1320043394.1520075963-141800051.1519325435
-# https://releases.hashicorp.com/nomad/0.7.1/nomad_0.7.1_linux_arm64.zip?_ga=2.261375693.1320043394.1520075963-141800051.1519325435
-
 
 ARG NOMAD_VERSION=0.7.1
 
