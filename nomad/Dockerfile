@@ -70,6 +70,7 @@ RUN set -x \
     # nomad version
 
 RUN mkdir -p /nomad/data && \
+	mkdir -p /nomad/config && \
     mkdir -p /etc/nomad && \
     chown -R nomad:nomad /nomad
 
