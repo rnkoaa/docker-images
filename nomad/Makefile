@@ -6,9 +6,10 @@ PRIVATE_KEY := .vagrant/machines/node/virtualbox/private_key
 PROJECT_NAME ?= rnkoaa
 ORG_NAME ?= rnkoaa
 REPO_NAME ?= nomad
-VERSION ?= latest
+LATEST_VERSION ?= latest
 NOMAD_VERSION ?=0.7.1
-IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(VERSION)
+LATEST_IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(LATEST_VERSION)
+IMAGE_NAME ?= $(ORG_NAME)/$(REPO_NAME):$(NOMAD_VERSION)
 
 # get colors from http://linuxmanage.com/colored-man-pages-log-files.html
 YELLOW := "\e[0;33m" # yellow
@@ -28,7 +29,9 @@ WARN := @bash -c '\
 build:
 	$(INFO) "generating building docker image"
 	@docker build --build-arg $(NOMAD_VERSION) -t $(IMAGE_NAME) .
+	@docker build --build-arg $(NOMAD_VERSION) -t $(LATEST_IMAGE_NAME) .
 
 rmi:
 	$(INFO) "generating building docker image"
 	@docker rmi -f $(IMAGE_NAME)
+	@docker rmi -f $(LATEST_IMAGE_NAME)
