@@ -4,20 +4,24 @@ services:
   jenkins:
     image: rnkoaa/jenkins:lts
     container_name: jenkins
+    env_file:
+      ./.env
     environment:
       NEXUS_HOST: "nexus"
       NEXUS_PORT: "8081"
       NEXUS_USER: "admin"
-      NEXUS_PASS: "admin"
-      JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
+      JENKINS_ADMIN_USER: ${JENKINS_ADMIN_USER}
+      JENKINS_ADMIN_PASSWORD: ${JENKINS_ADMIN_PASSWORD}
+      NEXUS_PASSWORD: "admin123"
+      JAVA_OPTS: "-Xmx512m -Dfile.encoding=UTF-8 -Djenkins.install.runSetupWizard=false -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
     privileged: true
     ports:
       - "50000:50000"
       - "8080:8080"
-    secrets:
-      - jenkins-user
-      - jenkins-pass
+    # secrets:
+    #   - jenkins-user
+    #   - jenkins-pass
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
@@ -29,7 +33,7 @@ services:
     image: sonatype/nexus3:latest
     container_name: nexus-3
     environment:
-      JAVA_MIN_MEM: "256M"
+      JAVA_MIN_MEM: "512M"
       JAVA_MAX_MEM: "512M"
 #      JKS_PASSWORD: "$JKS_PASSWORD"
     container_name: nexus
@@ -57,8 +61,9 @@ volumes:
   nexus_data:
   jenkins_home:
 
-secrets:
-  jenkins-user:
-    external: true
-  jenkins-pass:
-    external: true
+# secrets:
+#   jenkins-user:
+#     external: true
+#   jenkins-pass:
+#     external: true
+

@@ -1,3 +1,7 @@
+.PHONY: build clean run clean-image clean-image-deps
+default: build
+.DEFAULT_GOAL := build
+
 # Project variables
 PROJECT_NAME ?= jenkins
 ORG_NAME ?= rnkoaa
@@ -32,7 +36,6 @@ WARN := @bash -c '\
 	echo "=> $$1"; \
 	printf $(NC)' VALUE
 
-.PHONY: build clean run clean-image clean-image-deps
 
 build:
 	docker build --build-arg DOCKER_GID=1001 -t $(ORG_NAME)/$(PROJECT_NAME):$(BUILD_TAG) .
@@ -57,7 +60,7 @@ clean-image:
 	
 clean-image-deps:
 #	docker rmi -f $(shell $(docker images -qa -f dangling=true))
-	docker images -q -f dangling=true -f LABEL=application.name=$(REPO_NAME) | xargs -I ARGS docker rmi -f ARGS
+	docker images -q -f dangling=true -f LABEL=application.name=$(PROJECT_NAME) | xargs -I ARGS docker rmi -f ARGS
 
 run:
 	docker run -itd --name $(CONTAINER_NAME) -p 8080:8080 $(ORG_NAME)/$(PROJECT_NAME):$(BUILD_TAG)

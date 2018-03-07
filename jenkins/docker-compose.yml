@@ -4,15 +4,17 @@ services:
   master:
     image: rnkoaa/jenkins:lts
     environment:
+      JENKINS_ADMIN_USER: "jenkins_admin"
+      JENKINS_ADMIN_PASSWORD: "admin"
       JAVA_OPTS: "-Xmx2048m -Dfile.encoding=UTF-8 -Djava.awt.headless=true -Dhudson.footerURL=http://rfstaging.asuscomm.com"
     container_name: jenkins
     privileged: true
     ports:
       - "50000:50000"
       - "8080:8080"
-    secrets:
-      - jenkins-user
-      - jenkins-pass
+    # secrets:
+    #   - jenkins-user
+    #   - jenkins-pass
     volumes:
       - jenkins_home:/var/jenkins_home
       - /var/run/docker.sock:/var/run/docker.sock
@@ -30,8 +32,8 @@ networks:
 volumes:
   jenkins_home:
 
-secrets:
-  jenkins-user:
-    external: true
-  jenkins-pass:
-    external: true
+# secrets:
+#   jenkins-user:
+#     external: true
+#   jenkins-pass:
+#     external: true
