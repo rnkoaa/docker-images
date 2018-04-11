@@ -64,6 +64,13 @@ RUN mkdir -p /nomad/data && \
     mkdir -p /etc/nomad && \
     chown -R nomad:nomad /nomad
 
+
+# Expose the consul data directory as a volume since there's mutable state in there.
+VOLUME /nomad/data
+
+# Expose config directory
+VOLUME /nomad/config
+
 EXPOSE 4646 4647 4648 4648/udp
 
 ADD start.sh /usr/local/bin/start.sh
