@@ -1,3 +1,3 @@
-#!/bin/env bash
+#!/bin/env sh
 
-docker build -t rnkoaa/node-alpine .
+docker build -t rnkoaa/node-alpine:9 .

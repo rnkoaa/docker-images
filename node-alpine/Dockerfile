@@ -1,3 +1,2 @@
-FROM alpine:3.5
-RUN apk update && apk upgrade \
-    && apk add nodejs
+FROM node:9-alpine
+MAINTAINER Richard Agyei <richard.agyei@gmail.com>
