@@ -1,0 +1,45 @@
+wait {
+  min = "5s"
+  max = "10s"
+}
+
+log_level = "info"
+
+vault {
+  address = "vault-addr"
+  renew_token = false
+  ssl {
+    enabled = true
+
+    # This enables SSL peer verification. The default value is "true", which
+    # will check the global CA chain to make sure the given certificates are
+    # valid. If you are using a self-signed certificate that you have not added
+    # to the CA chain, you may want to disable SSL verification. However, please
+    # understand this is a potential security vulnerability.
+    verify = false
+
+
+    cert = "${cert-location}"
+    key  = "${cert-key-location}"
+    ca_cert = "${ca-cert-location}"
+    ca_path = "/etc/ssl/certs/"
+
+    # This sets the SNI server name to use for validation.
+    # server_name = "my-server.com"
+  }
+
+  retry {
+    enabled = true
+    attempts = 5
+    backoff = "250ms"
+  }
+}
+
+template {
+  source = "/data/consul-template/template.d/config.json.ctmpl"
+  destination = "/git2consul.d/config.json"
+}
+
+exec {
+  command = "git2consul --endpoint ${CONSUL_ENDPOINT} --port ${CONSUL_PORT} --config-file /git2consul.d/config.json"
+}

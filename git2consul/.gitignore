@@ -1,0 +1,5 @@
+cmds
+certs/
+config/consul-template.hcl
+config.env
+config.json

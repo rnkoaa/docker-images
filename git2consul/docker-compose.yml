@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  git2consul:
+    image: rnkoaa/git2consul:0.12.13
+    env_file:
+      - "config.env"
+    volumes:
+      - "/tmp/certs/vagrant-hashi-stack.cert:/etc/ssl/certs/vagrant-hashi-stack.cert"
+      - "/tmp/certs/vagrant-hashi-stack.key:/etc/ssl/certs/vagrant-hashi-stack.key"
+      - "/tmp/certs/cacert.pem:/etc/ssl/certs/cacert.pem"
+    extra_hosts:
+      - "vagrant-hashi-stack-1.alpha.consul:192.168.33.10"
+      - "vagrant-hashi-stack-1:192.168.33.10"
+      - "vagrant-hashi-stack-2.alpha.consul:192.168.33.11"
+      - "vagrant-hashi-stack-2:192.168.33.11"
+      - "vagrant-hashi-stack-3.alpha.consul:192.168.33.12"
+      - "vagrant-hashi-stack-3:192.168.33.12"

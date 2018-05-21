@@ -1,0 +1,15 @@
+{
+    "version": "1.0",
+    "repos" : [{
+      "name" : "consul_education",
+      {{ with $bitbucket := secret "secret/data/bitbucket" }}
+      "url" : "https://{{ $bitbucket.Data.data.username }}:{{ $bitbucket.Data.data.access_token }}@bitbucket.org/richie_rnkoaa/consul-education-config.git",
+      {{ end }}
+      "support_tags" : true,
+      "branches" : ["master"],
+      "hooks": [{
+        "type" : "polling",
+        "interval" : "30"
+      }]
+    }]
+  }

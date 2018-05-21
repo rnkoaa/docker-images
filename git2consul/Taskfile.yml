@@ -1,0 +1,44 @@
+version: '2'
+
+          # --entrypoint "/usr/local/bin/git2consul --endpoint vagrant-hashi-stack-1.alpha.consul --port 8500 --config-file /etc/git2consul.d/config.json"
+tasks:
+  run-shell:
+    cmds:
+      - cmd: >
+          docker run
+          --add-host vagrant-hashi-stack-1.alpha.consul:192.168.33.10
+          --add-host vagrant-hashi-stack-1:192.168.33.10
+          --add-host vagrant-hashi-stack-2:192.168.33.11
+          --add-host vagrant-hashi-stack-3:192.168.33.12
+          --rm
+          --entrypoint "sh"
+          -v /tmp/git2consul.d:/etc/git2consul.d
+          -e CONSUL_ENDPOINT=vagrant-hashi-stack-1.alpha.consul
+          -e CONSUL_PORT=8501
+          -it rnkoaa/git2consul:latest
+  run:
+    cmds:
+      - cmd: >
+          docker run
+          --add-host vagrant-hashi-stack-1.alpha.consul:192.168.33.10
+          --add-host vagrant-hashi-stack-1:192.168.33.10
+          --add-host vagrant-hashi-stack-2:192.168.33.11
+          --add-host vagrant-hashi-stack-3:192.168.33.12
+          --rm
+          --entrypoint "sh"
+          -v /tmp/git2consul.d:/etc/git2consul.d
+          -e CONSUL_ENDPOINT=vagrant-hashi-stack-1.alpha.consul
+          -e CONSUL_PORT=8501
+          -it rnkoaa/git2consul:latest
+  docker-compose:
+    cmds:
+      - docker-compose up -d
+  docker-build:
+    cmds:
+      - docker build -t rnkoaa/git2consul:0.12.13 .
+      # - docker tag rnkoaa/git2consul:0.12.13 rnkoaa/git2consul:latest
+
+  docker-push:
+    cmds:
+      - docker push rnkoaa/git2consul:0.12.13
+      - docker push rnkoaa/git2consul:latest
